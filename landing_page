@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Meritto </title>
+    <title>Meritto</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,9 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
         }
 
         .container {
@@ -23,14 +24,14 @@
         }
 
         header {
-            background: #007BFF;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
             color: white;
-            padding: 20px 0;
+            padding: 60px 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 10px;
         }
 
@@ -45,72 +46,110 @@
         .cta button {
             background: #FFC107;
             color: #333;
-            padding: 10px 20px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
+            font-size: 1.2rem;
             cursor: pointer;
-            font-size: 1rem;
+            transition: background 0.3s ease;
         }
 
         .cta button:hover {
             background: #E0A800;
         }
 
-        .features, .testimonials, .pricing {
+        .section {
             padding: 50px 0;
             text-align: center;
         }
 
-        .features h2, .testimonials h2, .pricing h2 {
-            font-size: 2rem;
+        .section h2 {
+            font-size: 2.5rem;
+            color: #0056b3;
             margin-bottom: 20px;
         }
 
-        .features .grid, .pricing .grid {
-            display: grid;
-            gap: 20px;
-        }
-
-        .features .grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .pricing .grid {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        .features, .testimonials, .pricing {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
         .card {
-            background: #F8F9FA;
-            border: 1px solid #DDD;
-            padding: 20px;
+            flex: 1 1 30%;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            text-align: left;
         }
 
-        .testimonials .testimonial {
-            margin-bottom: 20px;
-            font-style: italic;
+        .testimonials .card {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s forwards;
+        }
+
+        .testimonials .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .testimonials .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .testimonials .card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 1rem;
+        }
+
+        .pricing .card {
+            border: 2px solid #007BFF;
         }
 
         footer {
-            background: #343A40;
+            background: #333;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
+            padding: 20px;
         }
 
-        footer p {
-            font-size: 0.9rem;
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         @media (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+            }
+
             header h1 {
                 font-size: 2rem;
             }
 
-            .features .grid, .pricing .grid {
-                grid-template-columns: 1fr;
+            header p {
+                font-size: 1rem;
+            }
+
+            .cta button {
+                font-size: 1rem;
             }
         }
     </style>
@@ -119,71 +158,69 @@
     <header>
         <div class="container">
             <h1>Meritto</h1>
-            <p>Streamline your workflow and boost your productivity.</p>
+            <p>Transform your business with our powerful solutions.</p>
             <div class="cta">
                 <button>Get Started for Free</button>
             </div>
         </div>
     </header>
 
-    <section class="features">
+    <section class="section features">
         <div class="container">
             <h2>Features</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Feature 1</h3>
-                    <p>Education CRM</p>
-                </div>
-                <div class="card">
-                    <h3>Feature 2</h3>
-                    <p>Application Automation</p>
-                </div>
-                <div class="card">
-                    <h3>Feature 3</h3>
-                    <p>Post-application Automation</p>
-                </div>
-              <div class="card">
-                    <h3>Feature 4</h3>
-                    <p>Niaa- The Education Chatbot</p>
-                </div>
+            <div class="card">
+                <h3>Feature 1</h3>
+                <p>Streamline your workflow with advanced automation.</p>
+            </div>
+            <div class="card">
+                <h3>Feature 2</h3>
+                <p>Real-time analytics to make informed decisions.</p>
+            </div>
+            <div class="card">
+                <h3>Feature 3</h3>
+                <p>Secure and scalable solutions.</p>
             </div>
         </div>
     </section>
 
-    <section class="testimonials">
+    <section class="section testimonials">
         <div class="container">
-            <h2>What Our Users Say</h2>
-            <p class="testimonial">"This product has changed how we work. It's a game-changer!"</p>
-            <p class="testimonial">"Incredible customer support and a fantastic tool overall."</p>
-            <p class="testimonial">"Highly recommend for anyone looking to improve team collaboration."</p>
+            <h2>What Our Customers Say</h2>
+            <div class="card">
+                <h3>Rohit</h3>
+                <p>"This SaaS tool has revolutionized how we work."</p>
+            </div>
+            <div class="card">
+                <h3>Vartika</h3>
+                <p>"Our team's productivity has increased tenfold."</p>
+            </div>
+            <div class="card">
+                <h3>Rachit</h3>
+                <p>"The best investment our company has made this year."</p>
+            </div>
         </div>
     </section>
 
-    <section class="pricing">
+    <section class="section pricing">
         <div class="container">
             <h2>Pricing Plans</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Basic</h3>
-                    <p>Free</p>
-                    <p>Includes Basic essential features</p>
-                </div>
-                <div class="card">
-                    <h3>Pro</h3>
-                    <p>$15/month</p>
-                    <p>Perfect with small teams and advanced needs.</p>
-                </div>
-                <div class="card">
-                    <h3>Enterprise</h3>
-                    <p>Contact Us</p>
-                    <p>Custom solutions tailored for large organizations.</p>
-                </div>
+            <div class="card">
+                <h3>Basic</h3>
+                <p>$10/month - Includes Basic essential features.</p>
+            </div>
+            <div class="card">
+                <h3>Pro</h3>
+                <p>$30/month - Perfect with small teams and advanced needs.</p>
+            </div>
+            <div class="card">
+                <h3>Enterprise</h3>
+                <p>Custom pricing - Tailored solutions for large organizations.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Meritto Product. All Rights Reserved.</p>
+        <p>&copy; 2025 Meritto. All rights reserved.</p>
     </footer>
 </body>
 </html>
